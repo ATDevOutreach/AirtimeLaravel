@@ -1,0 +1,49 @@
+# Steps:
+1. Update Composer -
+$ sudo /usr/local/bin/composer self-update
+
+2. Install Laravel to Project Folder -
+$ composer create-project laravel/laravel {directory} 4.2 --prefer-dist
+
+3. Enter Database details in app/config/database.php -
+Make the files writeable : sudo chmod 775 /Path-to-app/app/config/database.php
+
+4. Create a Migration -
+$ sudo php artisan migrate:make create_sents_table --create=sents
+
+5. Create Sent Model to interact with DB
+
+6. Lets Seed our Database -
+Call this Seeder file from Database Seeder - app/database/seeds/DatabaseSeeder.php
+
+7. Run DB Seed -
+$ sudo php artisan db:seed
+
+8. Create the Sent Resource Controller -
+php artisan controller:make CommentController --only=index,store,destroy
+
+9. Create the routes at app/routes.php
+
+10. Test your routes with -
+$ sudo php artisan routes
+
+The API is Ready!
+
+Now to Angular
+====
+a. Angular files are placed in public --> airtime/public
+ - in public/js/services write the Angular $http service
+ - in public/js/controllers write the SentController
+ - in public/js/ write the Angular app.js
+
+===
+b. Write the index.php in app/views
+ -
+===
+c. Run 
+$php artisan serve
+
+d. Go to the URL to see your app.
+
+
+
